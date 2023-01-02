@@ -39,3 +39,6 @@ $RECYCLE.BIN/
 # Local environment variables
 .env
 scripts/apex/hello.apex
+scripts/apex/*
+scripts/apex/hello.apex
+.vim-force.com/session.properties
