@@ -12,13 +12,13 @@ public class RetailMapService implements MapInterface{
 
         try {
             Account acc = [SELECT Name,
-                        Description,
-                        Address1__c, 
-                        Address2__c, 
-                        Address3__c 
-                        FROM Account
-                        WHERE Id =: accountId
-                ];
+                                  Description,
+                                  Address1__c, 
+                                  Address2__c, 
+                                  Address3__c 
+                                  FROM Account
+                                  WHERE Id =: accountId
+                          ];
 
             Map<String,Object> location = new Map <String, Object> {
                 'City' => acc.Address1__c,
