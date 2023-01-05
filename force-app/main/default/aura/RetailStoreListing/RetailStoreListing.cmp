@@ -1,0 +1,32 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+				controller="RetailStoreListingController">
+
+<aura:attribute name="data"                    type="List" 	        default="[]"/>
+<aura:attribute name="columns"                 type="List"          default="[]"/>
+<aura:attribute name="draftValues" 			   type="Object" 		default="[]"/>
+<aura:attribute name="selectedRows" 		   type="List" 		    default="[]"/>
+<aura:attribute name="btnDisabled" 			   type="Boolean" 		default="true"/>
+
+<aura:handler name="init" value="{!this}" action="{!c.fnInit}" />
+
+    <lightning:layout multipleRows="true">
+		<lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+			<div class="slds-scrollable_y">
+				<div class="non_header_action">
+					<div style="min-height: 200px; max-height: 400px; flex: 1;">
+						<lightning:datatable class="slds-table slds-table_bordered slds-table_col-bordered" 
+											aura:id="datatable"
+											keyField="id"
+											columns="{!v.columns}"
+											data="{!v.data}"
+											showRowNumberColumn="false"
+											hideCheckboxColumn="true"
+                                            onsave="{!c.handleSaveAction}"
+                                            draftValues="{!v.draftValues}"
+						/>
+					</div>
+				</div>                                        
+			</div>
+		</lightning:layoutItem>
+	</lightning:layout>
+</aura:component>	
